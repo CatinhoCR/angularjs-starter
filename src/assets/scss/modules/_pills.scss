@@ -1,0 +1,27 @@
+.pill{
+    border: 1px solid $dark-blue;
+    color: $dark-blue;
+    border-radius: 20px;
+    padding: rem(4) rem(8);
+    width: rem(80);
+    text-align: center;
+    display: inline-block;
+    font-size: rem(12);
+    &.blue{
+        border-color: $royal-blue;
+        color: $royal-blue;
+    }
+    &.red{
+        border-color: $red;
+        color: $red;
+    }
+    &.gray{
+        border-color: $light-gray;
+        color: $fonts-light;
+        background-color: $light-gray;
+    }
+    &.yellow{
+        border-color: darken($yellow, 5%);
+        color: darken($yellow, 5%);
+    }
+}

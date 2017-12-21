@@ -1,0 +1,249 @@
+/*
+.manage-printing{
+    padding: rem(40);
+}
+.align-right{
+    text-align: right;
+}
+.align-center{
+    text-align: center;
+}
+.manage-printing{
+    background-color: #fff;
+}
+.table{
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid $border-color;
+    border-collapse:collapse; 
+    input[type="checkbox"]{
+        padding: rem(15);
+        transform: scale(1.2);
+        margin: 0 rem(10);
+    }
+    tr{
+        &:last-child{
+            border-bottom: 1px solid $border-color;
+        }
+        th, td{
+            padding: rem(8);
+            text-align: left;
+            line-height: 1.6;
+            border-color: $border-color;
+            i{
+                color: #919da6;
+            }
+
+        }
+
+        
+    }
+    th{
+        font-weight: 400;
+        &:nth-child(2n){
+            color: $blue;
+            i{
+                font-size: rem(22);
+                margin-right: rem(20);
+                padding-left: rem(20);
+            }
+        }
+        &:last-child{
+            font-style: italic;
+            color: $mid-gray;
+        }
+    }
+    
+    thead{
+        tr{
+            border-bottom: 2px solid $border-color;
+        }
+    }
+    tbody{
+        tr{
+            border-top: none;
+            border-bottom: 1px solid $border-color;
+            &:last-child{
+                border-bottom: 1px solid $border-color;
+            }
+            td{
+                &.form-name{
+                    color: $blue;
+                }
+                &:nth-child(3n) {
+                    i{
+                        color: $red;
+                        font-size: rem(20);
+                        margin-left: rem(16);
+                        &:first-child{
+                            margin-left: 0;
+                        }
+                    }
+                }
+                &:last-child{
+                    // font-style: italic;
+                    padding-right: rem(30);
+                    // border-bottom: none;
+                    
+                }
+            }
+            
+            &:hover {
+                background-color: $light-gray;
+            }
+        }
+        
+    }
+    tr{
+        &.disabled{
+            background-color: $light-gray;                        
+            td{
+                &.form-name{
+                    color: $mid-gray;
+                }
+                &:nth-child(3n), &:last-child{
+                    opacity: 0!important;
+                    
+                }
+            }
+        }
+    }
+    
+}
+*/
+.toggle.btn {
+    border-radius: 20px;
+    height: 28px !important;
+    min-height: 28px !important;
+    width: 50px !important;
+    min-width: 50px !important;
+    background-color: #6ecb4b;
+    border-color: #6ecb4b;
+    transition: 0.2s all; }
+    .toggle.btn:hover {
+      background-color: #55b033;
+      border-color: #55b033; }
+    .toggle.btn:active:focus, .toggle.btn:focus, .toggle.btn:active {
+      border-color: #55b033; }
+    .toggle.btn .btn {
+      padding: 2px 12px; }
+      .toggle.btn .btn.active {
+        box-shadow: none; }
+      .toggle.btn .btn.toggle-on, .toggle.btn .btn.toggle-off {
+        text-indent: -9999px; }
+      .toggle.btn .btn.toggle-on {
+        background-color: #6ecb4b;
+        border-color: #6ecb4b; }
+      .toggle.btn .btn.toggle-off {
+        background-color: #fff;
+        border-color: #fff;
+        width: 102%;
+        height: 102%; }
+      .toggle.btn .btn.toggle-handle {
+        padding: 0;
+        border-color: #c8ced2;
+        transform: translateX(-54%);
+        height: 20px;
+        width: 20px;
+        margin-top: 1px;
+        padding: 0;
+        border-radius: 50%; }
+    .toggle.btn.off {
+      background-color: #fafafa;
+      border-color: #c8ced2; }
+      .toggle.btn.off:active:focus, .toggle.btn.off:focus, .toggle.btn.off:active {
+        border-color: #e4e7e9; }
+      .toggle.btn.off:hover {
+        background-color: white;
+        border-color: #e4e7e9; }
+      .toggle.btn.off .btn.toggle-handle {
+        transform: translateX(54%); }
+        .toggle-group{
+            top: 2px;
+        }
+/*
+.bms-toggle{
+    border-radius: 20px;
+    height: 28px!important;
+    min-height: 28px!important;
+    width: 50px!important;
+    min-width: 50px!important;
+    background-color: $green;
+    border-color: $green;
+    @include transition(.2s all);
+    &:hover{
+        background-color: darken($green, 10%);
+        border-color: darken($green, 10%);
+    }
+    &:active:focus, &:focus, &:active{
+        border-color: darken($green, 10%);
+    }
+    
+    .btn{
+        padding: 2px 12px;
+        &.active{
+            box-shadow: none;
+        }
+        &.toggle-on, &.toggle-off{
+            text-indent: -9999px;
+        }
+        &.toggle-on{
+            background-color: $green;
+            border-color: $green;
+        }
+        &.toggle-off{
+            background-color: #fff;
+            border-color: #fff;
+            width: 102%;
+            height: 102%;
+        }
+        
+        &.toggle-handle{
+            padding: 0;
+            border-color: $mid-gray;
+            transform: translateX(-54%);
+            height: 24px;
+            width: 24px;
+            // 24px (height) + 1px margin-top + 1px border top = 26 (which leaves the same 2px at bottom to be perfectly centered; because 28px is total height of container)
+            margin-top: 1px; 
+            padding: 0;
+            border-radius: 50%;
+            &:hover{
+                
+            }
+        }
+    }
+
+    // overrides to off states. All the way to the bottom for cascading it.
+    &.off{
+        background-color: $light-gray;
+        border-color: $mid-gray;
+        &:active:focus, &:focus, &:active{
+            border-color: lighten($mid-gray, 10%);
+        }
+        &:hover{
+            background-color: lighten($light-gray, 10%);
+            border-color: lighten($mid-gray, 10%);
+        }
+        .btn.toggle-handle{
+            transform: translateX(54%);
+        }
+
+    }
+}
+*/
+/*
+.btn{
+    &.btn-gray{
+        border: 2px solid $mid-gray;
+        color: $dark-gray;
+        background-color: #fff;
+        @include transition(.2s all);
+        &:hover{
+            background-color: $dark-gray;
+            border-color: $dark-gray;
+            color: #fff;
+        }
+    }
+}
+*/

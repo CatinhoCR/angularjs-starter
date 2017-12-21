@@ -1,0 +1,220 @@
+.search-filter {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    h2 {
+        margin-bottom: 0!important;
+        padding: rem(25) 0;
+    }
+    .search-form {
+        margin-bottom: 0;
+        margin-left: rem(20);
+        max-width: rem(200);
+        max-height: 70px;
+        position: relative;
+        @include transition(0.5s all);
+        label,
+        input {
+            @include transition(0.5s width);
+            margin-left: rem(30);
+            height: 0;
+        }
+        label {
+            white-space: nowrap;
+            opacity: 0;
+            font-size: rem(10);
+            display: block;
+            color: $fonts-light;
+            margin-bottom: 0;
+        }
+        input {
+            opacity: 0;
+            position: relative;
+            z-index: -1000;
+            width: calc( 100% - 30px);
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: $fonts-light;
+            font-size: rem(14);
+            font-weight: 700;
+            text-transform: capitalize;
+            &:hover,
+            &:active,
+            &:focus {
+                outline: none;
+            }
+        }
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%) translateX(0);
+            @include transition(0.5s all);
+            // -webkit-transition-property: right;
+            // -webkit-transition-duration: 0.5s;
+            // -webkit-transition-property: top;
+            // -webkit-transition-duration: 0.5s;
+            &:hover,
+            &:active,
+            &:focus {
+                outline: none;
+            }
+        }
+        .status-filter {
+            // Reset
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: transparent;
+            border: none;
+            // z-index: 5;
+            color: $mid-gray;
+            // margin: rem(12) 0;
+            // line-height: 1.5em;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0.5em 3.5em 0.5em 1em;
+            background-image: linear-gradient(45deg, transparent 50%, $mid-gray 50%), linear-gradient(135deg, $mid-gray 50%, transparent 50%), linear-gradient(to right, transparent, transparent);
+            // linear-gradient(to right, skyblue, skyblue);
+            background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+            background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+            background-repeat: no-repeat;
+            @include transition(all 2s);
+        }
+        .query-alert {
+            background-color: $royal-blue;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateX(0);
+            right: rem(40);
+            padding: 0 rem(8);
+            width: max-content!important;
+            max-width: rem(600);
+            border-radius: rem(4);
+            max-height: rem(20);
+            @include transition(0.5s all);
+            p {
+                text-transform: capitalize;
+                font-size: rem(12);
+                color: #fff;
+                display: inline-block;
+                margin-bottom: 0;
+                margin-right: rem(8);
+            }
+            i {
+                color: #fff;
+                opacity: .7;
+                text-align: center;
+            }
+            &:hover {
+                i {
+                    opacity: 1;
+                }
+            }
+        }
+        &.show {
+            max-width: rem(1000);
+            margin-top: rem(20);
+            label,
+            input {
+                opacity: 1;
+                height: auto;
+            }
+            input {
+                display: inline-block;
+                opacity: 1;
+                z-index: 0;
+                height: rem(30);
+            }
+            .search-icon {
+                right: 100%;
+                top: 0;
+                transform: translateX(100%) translateY(0);
+            }
+            .query-alert {
+                transform: translateX(110%);
+                right: 100%;
+            }
+        }
+        &.searched,
+        &.show {
+            .status-filter {
+                display: none;
+                /*
+                opacity: 0;
+                height: 0;
+                z-index: -1;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                left: 0;
+                top: 0;
+                transform: translateX(-100%) translateY(-50%);
+                */
+            }
+        }
+    }
+}
+
+.search-no-results {
+    img {
+        padding: rem(20) 0;
+    }
+    h2 {
+        font-size: rem(20);
+        color: $fonts-light;
+    }
+    h3 {
+        font-size: rem(16);
+        color: $fonts-light;
+        text-transform: none;
+        font-weight: 500;
+    }
+    .search-form.no-results {
+        margin: rem(20) auto rem(40);
+        max-width: rem(360);
+        width: 80%;
+        position: relative;
+        input {
+            width: 100%;
+            height: 40px;
+            border-radius: 2px;
+            box-shadow: none;
+            border: 1px solid $fonts-light;
+            text-indent: rem(30);
+            border-color: #c8c8c8;
+            &::-webkit-input-placeholder {
+                // Chrome/Opera/Safari
+                color: rgba(99, 115, 129, 0.7);
+            }
+            &::-moz-placeholder {
+                // Firefox 19+
+                color: rgba(99, 115, 129, 0.7);
+            }
+            &:-ms-input-placeholder {
+                // IE 10+
+                color: rgba(99, 115, 129, 0.7);
+            }
+            &:-moz-placeholder {
+                // Firefox 18- 
+                color: rgba(99, 115, 129, 0.7);
+            }
+        }
+        label {
+            text-align: center;
+            font-size: rem(10);
+            color: $fonts-light;
+            width: 100%;
+            margin-top: rem(6);
+            opacity: .7;
+        }
+        .search-icon {
+            position: absolute;
+            left: rem(10);
+            top: rem(10);
+        }
+    }
+}

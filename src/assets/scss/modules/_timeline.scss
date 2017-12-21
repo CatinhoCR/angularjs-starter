@@ -1,0 +1,109 @@
+.timeline{
+	box-sizing: border-box;
+	margin-left: rem(20);
+	width: calc( 100% - 20px );
+	color: rgba(black, .7);
+	border-left: 2px solid lighten($fonts-light, 40%);
+	margin-right: rem(20);
+	
+	.timeline-month{
+		position: relative;
+		padding: 40px 0 20px;
+        list-style-type: none;
+		&::before{
+			content: attr(data-date);
+			position: absolute;
+			left: rem(64);
+            text-transform: uppercase;
+            color: $fonts-light;
+            font-weight: 600;
+			top: rem(16);
+			display: block;
+			font-size: rem(14);
+			font-size: .785rem;
+		}
+		li{
+			position: relative;
+            padding: rem(10) 0 rem(10) rem(32);
+            // Circle
+			&:before{
+                content: '';
+                width: 14px;
+				height: 14px;
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: 100%;
+				transform: translateY(-50%) translateX(48%);
+				border-radius: 50%;
+				border: 2px solid $light-blue;
+				background: $light-blue;
+            }
+            &.gray{
+                &:before{
+                    background: #C7CDDB;
+                    border-color: #C7CDDB;
+                }
+			}
+			> div{
+				position: relative;
+				background-color: #fff;
+				border: 1px solid #eee;
+				padding: rem(10);
+				border-radius: 2px;
+				margin-left: rem(20);
+                // 'chat' triangle
+                &::before{
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 50%;
+					width: 0;
+					height: 0;
+					border: 12px solid transparent;
+					border-right-color: #fff;
+					border-left-color: #eee;
+					border-left: 0;
+					margin-top: -12px;
+					margin-left: -12px;	
+				}
+				p{
+					margin: 0;
+					display: inline-block;
+				}
+				span.date{
+					padding: rem(4);
+					color: $fonts-light;
+					font-size: rem(12);
+				}
+			}
+
+			&.system-generated{
+				> div{
+					p{
+						margin: 0 rem(8);
+						max-width: rem(655);
+					}
+				}
+			}
+			
+			
+		}
+	}
+}
+/*
+
+
+	&::after {
+		
+	}
+
+	&:last-child {
+		border-image: linear-gradient(
+			to bottom,
+			$border-color 60%,
+			rgba($border-color, 0)) 1 100%
+		;
+	}
+}
+*/

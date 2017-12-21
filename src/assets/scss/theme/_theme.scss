@@ -1,0 +1,104 @@
+/* Color scheme */
+body, .fluid-container{
+    background-color: $background-color;
+    height: auto;
+}
+header{
+    background-color: #fff;
+}
+
+// Custom Icons
+.bms-icon{
+    background: url("../images/custom-icons-bmf2.png") no-repeat;
+    display: inline-block;
+    width: rem(20);
+    padding-bottom: rem(20);
+    background-size: 102%;
+    background-position: 0 0;
+    opacity: 0.5;
+    @include transition(.2s all);
+    &:hover{
+        opacity: 1;
+    }
+    &.accounts{
+        background-position: 0 0;
+    }
+    &.store{
+        background-position: 0 25%;
+    }
+    
+    &.contacts{
+        background-position: 0 50%;
+        width: rem(30);
+        padding-bottom: rem(30);
+    }
+    &.close{
+        background-position: 0 100%;
+        width: rem(30);
+        padding-bottom: rem(30);
+        &.light{
+            background-position: 0 75%;
+        }
+    }
+}
+a{
+    &:hover{
+        .bms-icon{
+            opacity: 1;
+        }
+    }
+    
+}
+/*
+.bms-icon{
+    background: url("../images/custom-icons-bmf2.png") no-repeat;
+    display: inline-block;
+    height: 0;
+    width: rem(30);
+    padding-bottom: rem(30);
+    background-position: 0 0;
+    background-size: 220%;
+    &:hover{
+        background-position: 86% 0;
+    }
+    &.store{
+        width: rem(20);
+        padding-bottom: rem(20);
+        background-position: 0 -19px;
+        &:hover{
+            background-position: 86% -19px;
+        }
+    }
+    &.accounts{
+        width: rem(20);
+        padding-bottom: rem(20);
+        background-position: 0 0;
+        &:hover{
+            background-position: 86% 0;
+        }
+        
+    }
+    &.contacts{
+        background-position: 0 -56px;
+        &:hover{
+            background-position: 86% -56px;
+        }
+    }
+    &.close{
+        background-position: 0 -80px;
+        &:hover{
+            background-position: 86% -80px;
+        }
+        &.inverted{
+            background-position: 86% -80px;
+            &:hover{
+                background-position: 0 -80px;
+            }
+        }
+    }
+}
+*/
+
+h3{
+    margin: rem(10) 0 rem(20);
+}

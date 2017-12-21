@@ -1,0 +1,14 @@
+.tab-content {
+    >.tab-pane {
+        opacity: 0;
+        @include transition(.2s opacity);
+        display: inline-block;
+        height: 0;
+        visibility: hidden;
+        &.show {
+            opacity: 1;
+            visibility: visible;
+            height: auto;
+        }
+    }
+}
